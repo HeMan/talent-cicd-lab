@@ -64,3 +64,13 @@ jobs:
           push: true
           # Name our container image ghcr.io/YOUR_USER/lab-cicd:latest and something similar to ghcr.io/YOUR_USER/lab-cicd:f296f4d
           tags: "${{ env.IMAGE_REGISTRY }}/talent-cicd-lab:${{ env.SHA_SHORT }},${{ env.IMAGE_REGISTRY }}/talent-cicd-lab:latest"
+  deploy:
+    needs: build
+    runs-on: ubuntu-22.04
+    name: Deploy the app
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: digitalocean/app_action/deploy@v2
+        with:
+          token: ${{ secrets.DO_DEPLOY_SECRET }}
