@@ -26,6 +26,7 @@ jobs:
       - name: Run unit tests
         run: npm run test
   build:
+    needs: test
     # Run on a ubuntu-22.04 VM image
     runs-on: ubuntu-22.04
     permissions:
@@ -62,4 +63,4 @@ jobs:
         with:
           push: true
           # Name our container image ghcr.io/YOUR_USER/lab-cicd:latest and something similar to ghcr.io/YOUR_USER/lab-cicd:f296f4d
-          tags: "${{ env.IMAGE_REGISTRY }}/talent-lab-cicd:${{ env.SHA_SHORT }},${{ env.IMAGE_REGISTRY }}/lab-cicd:latest"
+          tags: "${{ env.IMAGE_REGISTRY }}/talent-cicd-lab:${{ env.SHA_SHORT }},${{ env.IMAGE_REGISTRY }}/talent-cicd-lab:latest"
