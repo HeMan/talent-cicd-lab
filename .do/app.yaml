@@ -10,7 +10,7 @@ ingress:
       match:
         path:
           prefix: /
-name: goldfish-app
+name: talent-cicd-app
 region: ams
 services:
   - health_check:
