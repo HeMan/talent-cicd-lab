@@ -59,7 +59,7 @@ jobs:
 
       # Build and push our container image
       - name: Build and push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v6
         with:
           push: true
           # Name our container image ghcr.io/YOUR_USER/lab-cicd:latest and something similar to ghcr.io/YOUR_USER/lab-cicd:f296f4d
